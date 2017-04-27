@@ -13,3 +13,7 @@ from django.shortcuts import render
 def home(request):
     stocks = ["YHOO", "GOOG", "BABA", "NTES", "TCEHY"]
     return render(request, "home.html",{'stocks': json.dumps(stocks)})
+
+def select(request):
+    stock_id = request.GET['stock_id']
+    return render(request,"stock.html")
