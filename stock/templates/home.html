@@ -1,0 +1,35 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+<table id = "1" border="1">
+</table>
+
+
+<form action="page2.html">
+Please enter the id:<br>
+<input type="text" name="ID" value="">
+<br>
+<input type="submit" value="Submit">
+</form> 
+
+
+<script type="text/javascript">
+    stocks = {{ stocks|safe }};
+    x = document.getElementById(1);
+    for(st in stocks){
+        var tr = document.createElement("tr");
+        var th = document.createElement('th');
+        var text = document.createTextNode(stocks[st]);
+        th.appendChild(text);
+        tr.appendChild(th);
+        x.appendChild(tr);
+    }
+</script>
+
+</body>
+
+</html>
