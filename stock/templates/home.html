@@ -1,13 +1,70 @@
 <html>
 
 <head>
+    <style type="text/css">
+    table.hovertable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #999999;
+    border-collapse: collapse;
+    width: 300px;
+        margin: 0 auto;
+    }
+    table.hovertable th {
+    background-color:#c3dde0;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+    }
+    table.hovertable tr {
+    background-color:#d4e3e5;
+    }
+    table.hovertable td {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #a9c6c9;
+    }
+    body{
+        text-align:center;
+        font-family: verdana,arial,sans-serif;
+        font-size: 200%;
+    }
+    .background {
+        width: 100%;
+        height: 200px;
+        background-color: #d4e3e5;
+    }
+    .container{
+        padding: 50px;
+
+    }
+    .background p{
+        color: white;
+        magrin: 0 auto;
+        padding-top:50px;
+        font-weight: bold;
+        font-size: 300%;
+    }
+
+</style>
 </head>
 
 <body>
 
-<table id = "5" border="1">
+<div class = "background">
+    <p>stock price forecast</p>
+</div>
+<div class="container">
+<table class = "hovertable" id = "5" border="1">
+    <tr>
+        <th><input type="button" value="Name"/></th>
+    </tr>
 </table>
-
+</div>
 
 <form action="/stock/" method="get">
 Please enter the id:<br>
@@ -22,10 +79,16 @@ Please enter the id:<br>
     x = document.getElementById(5);
     for(st in stocks){
         var tr = document.createElement("tr");
-        var th = document.createElement('th');
-        var text = document.createTextNode(stocks[st]);
-        th.appendChild(text);
-        tr.appendChild(th);
+        tr.setAttribute('action',"/stock/")
+        tr.setAttribute('method','get')
+        var td = document.createElement('td');
+{#        var text = document.createTextNode(stocks[st]);#}
+{#        td.appendChild(text);#}
+        var input = document.createElement('input');
+        input.setAttribute('type','button');
+        input.setAttribute('value',stocks[st]);
+        td.appendChild(input);
+        tr.appendChild(td);
         x.appendChild(tr);
     }
 </script>
