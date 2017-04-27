@@ -79,15 +79,12 @@ Please enter the id:<br>
     x = document.getElementById(5);
     for(st in stocks){
         var tr = document.createElement("tr");
-        tr.setAttribute('action',"/stock/")
-        tr.setAttribute('method','get')
         var td = document.createElement('td');
-{#        var text = document.createTextNode(stocks[st]);#}
-{#        td.appendChild(text);#}
-        var input = document.createElement('input');
-        input.setAttribute('type','button');
-        input.setAttribute('value',stocks[st]);
-        td.appendChild(input);
+        var a = document.createElement('a');
+        a.innerHTML = stocks[st];
+        var str = "/stock/?stock_id="+stocks[st];
+        a.setAttribute("href",str);
+        td.appendChild(a);
         tr.appendChild(td);
         x.appendChild(tr);
     }

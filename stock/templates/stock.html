@@ -34,6 +34,8 @@ function generateChartData() {
   firstDate.setDate( firstDate.getDate() - 500 );
   firstDate.setHours( 0, 0, 0, 0 );
 
+  chartData1 = {{ info|safe }}
+
   for ( var i = 0; i < 500; i++ ) {
     var newDate = new Date( firstDate );
     newDate.setDate( newDate.getDate() + i );
@@ -50,11 +52,7 @@ function generateChartData() {
     var a4 = Math.round( Math.random() * ( 100 + i ) ) + 200 + i;
     var b4 = Math.round( Math.random() * ( 100 + i ) ) + 600 + i;
 
-    chartData1.push( {
-      "date": newDate,
-      "value": a1,
-      "volume": b1
-    } );
+
     chartData2.push( {
       "date": newDate,
       "value": a2,
